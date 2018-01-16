@@ -1,0 +1,9 @@
+<template>
+<div class="container">
+	<div class="row">
+        <div class="animationload">
+            <div class="osahanloading"></div>
+        </div>
+	</div>
+</div>
+</template>
