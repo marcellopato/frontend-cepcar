@@ -1,10 +1,10 @@
 <template>
-	<div class="card-columns">
-	<loader v-show="loader"></loader> 
+<div class="card-columns">
+	<!-- <loader v-show="loader"></loader> -->
 	<div class="card" v-for="vitrine in vitrines">
 		<div class="card-header">
 			<router-link :to="'/get-carro/' + vitrine.vid">
-				<img :src="'/images/' + vitrine.foto" class="img-responsive">
+			<img :src="'/images/' + vitrine.foto" class="img-responsive">
 			</router-link>
 		</div>
 		<div class="card-body">
@@ -14,7 +14,7 @@
 					<span>Versão: {{ vitrine.vdescricao }}</span><br>
 				</div>
 				<div class="col-md-4">
-						<img :src="'/images/' + vitrine.logotipo" alt="" class="img-responsive">
+					<img :src="'/images/' + vitrine.logotipo" alt="" class="img-responsive">
 				</div>
 			</div>
 		</div>
@@ -23,7 +23,7 @@
 </div>
 </template>
 <script>
-import { bus } from '../app';
+import { bus } from '../main';
 	export default {
 		data() {
 			return {
@@ -32,24 +32,24 @@ import { bus } from '../app';
 			}
 		},
 		created() {
-	      this.montaVitrine();
-	      bus.$on('trocaCarros', (data) => {
-	      	this.vitrines = data
-	      });
-	    },
-	    methods: {
-			montaVitrine() {
-				this.loader = true
-				axios.post('monta-vitrine').
-				then(response =>  {
-					this.vitrines = response.data
-					this.loader = false
-				})
-			},
-			formatPrice(value) {
-		        let val = (value/1).toFixed(2).replace('.', ',')
-		        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
-		    }
+			this.montaVitrine();
+			bus.$on('trocaCarros', (data) => {
+				this.vitrines = data
+			});
+		},
+		methods: {
+				montaVitrine() {
+					this.loader = true
+					axios.post('/api/monta-vitrine').
+					then(response =>  {
+						this.vitrines = response.data
+						this.loader = false
+					})
+				},
+				formatPrice(value) {
+					let val = (value/1).toFixed(2).replace('.', ',')
+					return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+				}
 		},
 		mounted() {
 			//

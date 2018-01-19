@@ -1,19 +1,31 @@
-import Vue from 'vue';
+require('./bootstrap');
+
 import VueRouter from 'vue-router';
 import App from './App.vue';
-import home from './components/home.vue';
+
+import vitrine from './components/vitrine';
 import posts from'./components/posts.vue';
+import loadre from './components/loader';
+import PageNotFound from './components/PageNotFound.vue';
+
+Vue.component('vitrine', vitrine);
 
 Vue.use(VueRouter);
+
+export const bus = new Vue();
 
 const routes = [
 	{
 		path: '/',
-		component: home
+		component: App
 	},
 	{
 		path: '/posts',
 		component: posts
+	},
+	{
+		path: '*',
+		component: PageNotFound
 	},
 ];
 
