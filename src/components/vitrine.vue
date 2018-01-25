@@ -1,7 +1,7 @@
 <template>
 <div class="container">
 	<div class="card-columns">
-		<loader v-show="loader"></loader>
+		<app-loader v-show="loader"></app-loader>
 		<div class="card" v-for="vitrine in vitrines">
 			<div class="card-header">
 				<router-link :to="'/get-carro/' + vitrine.vid">

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<loader v-show="loader"></loader>
+		<app-loader v-show="loader"></app-loader>
     <section class="container">
       <h1>Versão: {{ carro.descricao }}</h1> 
       <div class="row">

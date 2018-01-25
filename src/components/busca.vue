@@ -1,6 +1,6 @@
 <template>
 <div class="busca">
-<loader v-show="loader"></loader>
+<app-loader v-show="loader"></app-loader>
 <form class="form-inline col-md-offset-3">
 	<div class="form-group m-r-20">
         <select class="custom-select select-multi" name="marca" id="marca" style="min-width: 160px;" v-model="marcaid" @change="montaModelos">
