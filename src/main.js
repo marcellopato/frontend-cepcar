@@ -1,42 +1,23 @@
-require('./bootstrap');
+// require('./bootstrap');
+import Vue from 'vue';
+import App from './App.vue'
+import Router from './routes.js'
+import vitrine from './components/vitrine'
+import loader from './components/loader'
 
-import VueRouter from 'vue-router';
-import App from './App.vue';
+window.Vue = Vue
+window._ = require('lodash')
+window.axios = require('axios')
 
-import vitrine from './components/vitrine';
-import posts from'./components/posts.vue';
-import loadre from './components/loader';
-import PageNotFound from './components/PageNotFound.vue';
+Vue.component('vitrine', vitrine)
+Vue.component('loader', loader)
 
-Vue.component('vitrine', vitrine);
 
-Vue.use(VueRouter);
-
-export const bus = new Vue();
-
-const routes = [
-	{
-		path: '/',
-		component: App
-	},
-	{
-		path: '/posts',
-		component: posts
-	},
-	{
-		path: '*',
-		component: PageNotFound
-	},
-];
-
-const router = new VueRouter({
-	mode: 'history',
-	routes: routes
-})
+export const bus = new Vue()
 
 new Vue({
 	el: '#app',
-	router: router,
+	router: Router,
 	saveScrollPosition: true,
 	linkActiveClass : 'active',
 	render: h => h(App)

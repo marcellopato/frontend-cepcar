@@ -1,24 +1,26 @@
 <template>
-<div class="card-columns">
-	<!-- <loader v-show="loader"></loader> -->
-	<div class="card" v-for="vitrine in vitrines">
-		<div class="card-header">
-			<router-link :to="'/get-carro/' + vitrine.vid">
-			<img :src="'/images/' + vitrine.foto" class="img-responsive">
-			</router-link>
-		</div>
-		<div class="card-body">
-			<div class="row">
-				<div class="col-md-8">
-					<span>Modelo: {{ vitrine.mdescricao }}</span><br>
-					<span>Versão: {{ vitrine.vdescricao }}</span><br>
-				</div>
-				<div class="col-md-4">
-					<img :src="'/images/' + vitrine.logotipo" alt="" class="img-responsive">
+<div class="container">
+	<div class="card-columns">
+		<loader v-show="loader"></loader>
+		<div class="card" v-for="vitrine in vitrines">
+			<div class="card-header">
+				<router-link :to="'/get-carro/' + vitrine.vid">
+				<img :src="'http://cep5.dev/images/' + vitrine.foto" class="img-fluid">
+				</router-link>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-md-8">
+						<span>Modelo: {{ vitrine.mdescricao }}</span><br>
+						<span>Versão: {{ vitrine.vdescricao }}</span><br>
+					</div>
+					<div class="col-md-4">
+						<img :src="'http://cep5.dev/images/' + vitrine.logotipo" alt="" class="img-fluid">
+					</div>
 				</div>
 			</div>
+			<div class="card-footer"><span>Preço Sugerido: </span><span class="badge badge-pill badge-warning">R$ {{ formatPrice(vitrine.preco_basico) }}</span></div>
 		</div>
-		<div class="card-footer"><span>Preço Sugerido: </span><span class="badge badge-pill badge-warning">R$ {{ formatPrice(vitrine.preco_basico) }}</span></div>
 	</div>
 </div>
 </template>
@@ -40,7 +42,7 @@ import { bus } from '../main';
 		methods: {
 				montaVitrine() {
 					this.loader = true
-					axios.post('/api/monta-vitrine').
+					axios.get('https://cep5.dev/api/vitrines').
 					then(response =>  {
 						this.vitrines = response.data
 						this.loader = false
