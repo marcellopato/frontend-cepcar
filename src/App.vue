@@ -1,9 +1,8 @@
 <template>
-<div id="app">
-	<router-view></router-view>
+<div>
 	<app-navegador></app-navegador>
 	<app-busca></app-busca>
-	<app-vitrine></app-vitrine>
+	<router-view></router-view>
 	<app-footer></app-footer>
 </div>
 </template>

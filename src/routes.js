@@ -1,28 +1,29 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-
-Vue.use(VueRouter)
-
-import App from './App.vue'
+import home from './components/home.vue'
 import Posts from'./components/posts.vue'
+import Carro from'./components/carro.vue'
+import Post from'./components/post.vue'
 import PageNotFound from './components/PageNotFound.vue'
 
 
-const router = new VueRouter({
-	routes: [ 
+export const routes = [ 
 		{
 			path: '/',
-			component: App
+			component: home
 		},
 		{
 			path: '/posts',
 			component: Posts
 		},
 		{
+			path: '/post/:slug',
+			component: Post
+		},
+		{
+			path: '/carro-escolhido/:vid',
+			component: Carro
+		},
+		{
 			path: '*',
 			component: PageNotFound
 		},
 	]
-})
-
-export default router

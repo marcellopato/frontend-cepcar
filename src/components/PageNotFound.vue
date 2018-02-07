@@ -1,3 +1,5 @@
 <template>
-	<h1>Página não encontrada</h1>
+	<div class="container">
+		<h1>Página não encontrada</h1>
+	</div>
 </template>

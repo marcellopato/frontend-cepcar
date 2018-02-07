@@ -4,8 +4,8 @@
 		<app-loader v-show="loader"></app-loader>
 		<div class="card" v-for="vitrine in vitrines">
 			<div class="card-header">
-				<router-link :to="'/get-carro/' + vitrine.vid">
-				<img :src="'http://cep5.dev/images/' + vitrine.foto" class="img-fluid">
+				<router-link :to="'/carro-escolhido/' + vitrine.vid">
+					<img :src="'http://cep5.dev/images/' + vitrine.foto" class="img-fluid">
 				</router-link>
 			</div>
 			<div class="card-body">
@@ -36,13 +36,21 @@ import { bus } from '../main';
 		created() {
 			this.montaVitrine();
 			bus.$on('trocaCarros', (data) => {
-				this.vitrines = data
-			});
+	      		this.vitrines = data
+	      	});
+	      	bus.$on('trocaCarrosMesmaMarca', (mesmaMarca) =>{
+	      		this.loader = true
+	      		axios.post('/vitrine-marca')
+	      		.then(response => {
+	      			this.vitrines = response.data
+	      			this.loader = false
+	      		})
+	      	})
 		},
 		methods: {
 				montaVitrine() {
 					this.loader = true
-					axios.get('https://cep5.dev/api/vitrines').
+					axios.get('/vitrine').
 					then(response =>  {
 						this.vitrines = response.data
 						this.loader = false
@@ -53,8 +61,5 @@ import { bus } from '../main';
 					return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
 				}
 		},
-		mounted() {
-			//
-		}
 }
 </script>

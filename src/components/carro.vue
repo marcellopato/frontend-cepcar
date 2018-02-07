@@ -9,7 +9,7 @@
           </div>
           <div class="col col-lg-2">
             <div class="card right" style="width: 20rem;">
-              <img class="card-img-top" :src="'/images/' + carro.foto" alt="Card image cap">
+              <img class="card-img-top" :src="'https://cep5.dev/images/' + carro.foto" alt="Card image cap">
               <div class="card-body">
                 <h4 class="card-title">Dados Técnicos</h4>
                 <p class="card-text"><small><strong>Dados fornecidos pelo fabricante</strong></small></p>
@@ -41,10 +41,11 @@ export default {
       }
     },
     created() {
-        console.log(this.versao_id)
         this.loader = true
         axios.post('/carro-escolhido', {
-            versao_id: this.versao_id
+          // params:{
+            id: this.versao_id
+          // }
         })
         .then(response => {
           this.loader = false

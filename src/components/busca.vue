@@ -44,29 +44,27 @@ import { bus } from '../main';
     },
     methods: {
       montaMarcas() {
-        axios.get('https://cep5.dev/api/marcas').
+        axios.get('/marcas').
         then(response =>  {
+          bus.$emit('trocaCarros', response.data)
           this.marcas = response.data
         })
       },
       montaModelos() {
         this.loader = true
-        axios.get('https://cep5.dev/api/modelos', {
-          params: {
+        axios.post('/get-modelos', {
             id: this.marcaid
-          }
         })
         .then(response => {
+          // bus.$emit('vitrine-marca', response.data)
           this.modelos = response.data
           this.loader = false
         })
       },
       montaVersaos() {
         this.loader = true
-        axios.get('https://cep5.dev/api/versaos', {
-          params: {
+        axios.post('/get-versaos', {
             id: this.modeloid
-          }
         })
         .then(response => {
           this.loader = false

@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <router-link to="/" class="nav-link">Início</router-link>
+        <router-link to="/" exact class="nav-link">Início</router-link>
       </li>
       <li class="nav-item ">
         <router-link to="/posts" class="nav-link">Revista</router-link>
@@ -18,26 +18,26 @@
 </template>
 <script>
 // import auth from '../auth.js';
-export default {
-  data() {
-    return {
-      token: [],
-      dados: ''
-  }
-},
-  created() {
-    this.getToken();
-},
-  methods: {
-    getToken() {
-      const tokenGravado = localStorage.getItem('token')
-      this.token = tokenGravado
-  },
-    // logout() {
-    //   localStorage.removeItem('token')
-    //   this.user.authenticated = false
-    //   this.$router.push('/');
-    // }
-  }
-}
+// export default {
+//   data() {
+//     return {
+//       token: [],
+//       dados: ''
+//   }
+// },
+//   created() {
+//     this.getToken();
+// },
+//   methods: {
+//     getToken() {
+//       const tokenGravado = localStorage.getItem('token')
+//       this.token = tokenGravado
+//   },
+//     // logout() {
+//     //   localStorage.removeItem('token')
+//     //   this.user.authenticated = false
+//     //   this.$router.push('/');
+//     // }
+//   }
+// }
 </script>
