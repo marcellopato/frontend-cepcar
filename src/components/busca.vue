@@ -56,7 +56,8 @@ import { bus } from '../main';
             id: this.marcaid
         })
         .then(response => {
-          // bus.$emit('vitrine-marca', response.data)
+          bus.$emit('trocaCarrosMesmaMarca', this.marcaid)
+          // console.log(this.marcaid)
           this.modelos = response.data
           this.loader = false
         })

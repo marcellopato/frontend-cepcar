@@ -38,10 +38,13 @@ import { bus } from '../main';
 			bus.$on('trocaCarros', (data) => {
 	      		this.vitrines = data
 	      	});
-	      	bus.$on('trocaCarrosMesmaMarca', (mesmaMarca) =>{
+	      	bus.$on('trocaCarrosMesmaMarca', (data) =>{
 	      		this.loader = true
-	      		axios.post('/vitrine-marca')
+	      		axios.post('/vitrine-marca', {
+		            id: data
+		        })
 	      		.then(response => {
+	      			console.log(response.data)
 	      			this.vitrines = response.data
 	      			this.loader = false
 	      		})
