@@ -6,7 +6,7 @@
 				<div class="col">
 					<h1>{{ post.title }}</h1><br>
 					<span class="badge badge-pill badge-warning m-b-20">{{ post.created_at }}</span><br>
-					<img class="img-fluid img-thumbnail m-b-50" :src="'https://cep5.dev/images/' + post.image"><br>
+					<img class="img-fluid img-thumbnail m-b-50" :src="'https://cep5.test/images/' + post.image"><br>
 					<span v-html="post.body"></span>
 					<hr class="m-t-50">
 					<div id="disqus_thread"></div>
@@ -23,7 +23,7 @@ axios.defaults.headers = {'X-Requested-With': 'XMLHttpRequest'}
 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 
-var disqus_config = function () { 
+var disqus_config = function () {
 this.page.url = this.$route;  // Replace PAGE_URL with your page's canonical URL variable
 // // this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 };

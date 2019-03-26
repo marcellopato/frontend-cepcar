@@ -2,14 +2,14 @@
 	<div>
 		<app-loader v-show="loader"></app-loader>
     <section class="container">
-      <h1>Versão: {{ carro.descricao }}</h1> 
+      <h1>Versão: {{ carro.descricao }}</h1>
       <div class="row">
           <div class="col-9">
             <span v-html="carro.ficha_tecnica"></span>
           </div>
           <div class="col col-lg-2">
             <div class="card right" style="width: 20rem;">
-              <img class="card-img-top" :src="'https://cep5.dev/images/' + carro.foto" alt="Card image cap">
+              <img class="card-img-top" :src="'https://cep5.test/images/' + carro.foto" alt="Card image cap">
               <div class="card-body">
                 <h4 class="card-title">Dados Técnicos</h4>
                 <p class="card-text"><small><strong>Dados fornecidos pelo fabricante</strong></small></p>
@@ -27,7 +27,7 @@
                 <a href="#" class="card-link">Another link</a>
               </div>
             </div>
-          </div> 
+          </div>
       </div>
     </section>
 	</div>
@@ -53,5 +53,5 @@ export default {
           console.log(response.data)
         })
       }
-    }	
+    }
 </script>

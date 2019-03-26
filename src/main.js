@@ -23,7 +23,7 @@ window.Vue = Vue
 window._ = require('lodash')
 window.axios = require('axios')
 
-axios.defaults.baseURL = 'https://cep5.dev/api'
+axios.defaults.baseURL = 'https://cep5.test/api'
 
 Vue.component('app-navegador', navegador)
 Vue.component('app-busca', busca)

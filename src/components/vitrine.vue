@@ -2,10 +2,10 @@
 <div class="container">
 	<div class="card-columns">
 		<app-loader v-show="loader"></app-loader>
-		<div class="card" v-for="vitrine in vitrines">
+		<div class="card" v-for="vitrine in vitrines" :key="vitrine.index">
 			<div class="card-header">
 				<router-link :to="'/carro-escolhido/' + vitrine.vid">
-					<img :src="'http://cep5.dev/images/' + vitrine.foto" class="img-fluid">
+					<img :src="'http://cep5.test/images/' + vitrine.foto" class="img-fluid">
 				</router-link>
 			</div>
 			<div class="card-body">
@@ -15,7 +15,7 @@
 						<span>Versão: {{ vitrine.vdescricao }}</span><br>
 					</div>
 					<div class="col-md-4">
-						<img :src="'http://cep5.dev/images/' + vitrine.logotipo" alt="" class="img-fluid">
+						<img :src="'http://cep5.test/images/' + vitrine.logotipo" alt="" class="img-fluid">
 					</div>
 				</div>
 			</div>

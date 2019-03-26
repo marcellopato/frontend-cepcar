@@ -5,14 +5,14 @@
 	<div class="form-group m-r-20">
         <select class="custom-select select-multi" name="marca" id="marca" style="min-width: 160px;" v-model="marcaid" @change="montaModelos">
           <option selected disabled>Selecione a Marca</option>
-            <option v-for="marca in marcas" :value="marca.id">{{ marca.descricao }}</option>
+            <option v-for="marca in marcas" :value="marca.id" :key="marca.index">{{ marca.descricao }}</option>
         </select>
 	</div>
 	&nbsp;
 	<div class="form-group m-r-20">
         <select class="custom-select select-multi" name="modelos" style="max-width: 160px;" v-model="modeloid" @change="montaVersaos">
           <option selected disabled>Selecione o Modelo</option>
-            <option v-for="modelo in modelos" :value="modelo.id">{{ modelo.descricao }}</option>
+            <option v-for="modelo in modelos" :value="modelo.id" :key="modelo.index">{{ modelo.descricao }}</option>
         </select>
 	</div>
 	&nbsp;
@@ -24,7 +24,7 @@
             <option value="3">Híbrido</option>
         </select>
 	</div>
-</form>	
+</form>
 </div>
 </template>
 <script>
